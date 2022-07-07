@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+body {
+  background-color: #e5e5e5;
+  margin: 0;
+}
+
+header {
+  padding: 1% 0;
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.headerdiv {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+}
+
+.logotip {
+  padding: 0;
+  font-family: "Itim";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 38px;
+  border-bottom: 1px solid black;
+  width: auto;
+  display: flex;
+  text-align: center;
+}
+
+.logotip a {
+  text-decoration: none;
+  color: black;
+}
+
+.sign img {
+  width: 50%;
+  cursor: pointer;
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  right: 0;
+  z-index: 50;
+  background-color: #f1f1f1;
+}
+.novost {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  position: absolute;
+  left: 37%;
+  top: 5%;
+}
+
+.novosti {
+  display: flex;
+  align-items: center;
+  padding-right: 15%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger {
+  height: 7%;
+  background-color: #f1f1f1;
+  position: relative;
+  right: 0;
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  position: fixed;
+  z-index: 50;
+  border: 1px solid black;
+}
+
+.burger a {
+  text-decoration: none;
+  color: black;
+  padding-bottom: 2%;
+  margin-left: 25px;
+}
+
+.burger a:hover {
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-height: 1600px){
+  .burger {padding-right: 55px;}
+  .sign {padding-left: 5px;}
+  .sidebar a {font-size: 18px;}
+}
+  
