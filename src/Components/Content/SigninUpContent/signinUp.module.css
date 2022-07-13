@@ -1,0 +1,35 @@
+.registrDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 0;
+    }
+    
+    .formDiv {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+    .btnAvtoregistr {
+        margin-top: 3%;
+        background-color: inherit;
+        border: none;
+        color: gray;
+        cursor: pointer;
+    }
+    
+    .btnAvtoregistr a{
+    text-decoration: none;
+    color: gray;
+    }
+    
+    .formDiv input {
+        margin-bottom: 2%;
+        width: 100%;
+        padding: 2% 2%;
+    }
+
+    .regDiv {
+        margin-bottom: 5%;
+        font-size: 1.5em;
+    }

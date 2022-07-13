@@ -19,7 +19,7 @@
 }
 
 .photoBacr {
-  background-image: url("../image/photo1.svg");
+  background-image: url("../../image/photo1.svg");
   width: 1385px;
   height: 400px;
 }
@@ -64,23 +64,27 @@
   font-weight: 700;
   font-size: 40px;
   line-height: 42px;
-  margin-bottom: 2%;
+  padding-left: 8%;
+  padding-top: 2%;
 }
 
 .divLatesNews {
   padding-top: 5%;
   width: 85%;
   margin: auto;
-}
-
-.latesPhoto {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
+.latesPhoto {
+  width: 25%;
+}
+.divImg img{
+  cursor: pointer;
+}
+
 .divLates1 {
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .divLates1 div {
@@ -91,3 +95,4 @@
   font-size: 18px;
   line-height: 25px;
 }
+

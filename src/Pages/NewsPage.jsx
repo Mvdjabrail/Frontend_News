@@ -1,16 +1,16 @@
 import React from 'react';
-import SigninContent from '../Components/Content/SigninUpContent/SigninUpContent';
+import NewsContent from '../Components/Content/NewsContent/NewsContent';
 import Footer from '../Components/Footer/Footer';
 import Header from '../Components/Header/Header';
 
-const SignupPage = () => {
+const NewsPage = () => {
     return (
         <>
         <Header/>
-        <SigninContent/>
+        <NewsContent/>
         <Footer/>
         </>
     );
 };
 
-export default SignupPage;
+export default NewsPage;

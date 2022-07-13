@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logaut } from "../../app/features/userSlice";
 import css from "../Header/header.module.css";
 import img from "../image/Union.svg";
 
 const Header = () => {
+  const token = useSelector((state)=> state.user.token)
+  const name = localStorage.getItem("name");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dispatch = useDispatch()
 
   const rootEl = useRef(null);
 
@@ -25,6 +30,12 @@ const Header = () => {
     setIsMenuOpen(true);
   };
 
+  const handleLogaut = ()=>{
+    if(token){
+      dispatch(logaut())
+    }
+  }
+
   return (
     <header onClick={(e) => e.stopPropagation()} ref={rootEl}>
       <div className={css.headerdiv}>
@@ -39,13 +50,17 @@ const Header = () => {
           <div className={css.novosti}>Политика</div>
         </div>
         {!isMenuOpen ? (
-          <div onClick={handleBurger} className={css.sign}>
-            <img src={img} alt="" />
-          </div>
+          <>
+            <div onClick={handleBurger} className={css.sign}>
+              <div className={css.nameDiv}>{name}</div>
+              <div><img src={img} alt="" /></div>
+            </div>
+          </>
         ) : (
           <div className={css.burger}>
-            <Link to="SigninIn">Войти</Link>
-            <Link to="SigninUp">Регистрация</Link>
+            <Link to="/SigninIn">Войти</Link>
+            <Link to="/SigninUp">Регистрация</Link>
+            <Link to='/' onClick={handleLogaut} className={css.logaut}>Выход</Link>
           </div>
         )}
       </div>

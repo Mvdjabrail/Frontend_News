@@ -1,0 +1,32 @@
+
+.footerDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    margin: auto;
+    padding: 1%;
+    align-items: center;
+  }
+
+  .intocodeNews {
+    padding: 0;
+    font-family: "Itim";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 38px;
+    border-bottom: 1px solid black;
+    width: auto;
+    display: flex;
+    text-align: center;
+  }
+
+  .divfooter {
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+  }
+
+  .divfooter a {
+    cursor: pointer;
+  }
