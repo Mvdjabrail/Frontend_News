@@ -1,0 +1,30 @@
+.divNews {
+    width: 35%;
+    margin-bottom: 2%;
+
+}
+
+.mainNews {
+
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: auto;
+}
+
+.divTitle {
+    width: 90%;
+  font-family: "Playfair Display", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.divNews:hover {
+    transform: scale(1.05);
+  transition: 0.2s;
+  filter: drop-shadow(-12px 10px 15px rgba(0, 0, 0, 0.29));
+}

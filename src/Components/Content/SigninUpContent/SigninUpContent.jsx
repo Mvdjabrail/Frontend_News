@@ -3,9 +3,11 @@ import css from "../SigninUpContent/signinUp.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser } from "../../../app/features/userSlice";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const SigninUpContent = () => {
   const sugninUp = useSelector((state) => state.user.signinUp);
+  const loaders = useSelector((state)=> state.user.loaders)
   const error = useSelector((state) => state.user.error);
   const dispatch = useDispatch();
 
@@ -49,6 +51,7 @@ const SigninUpContent = () => {
 
   return (
     <div className={css.registrDiv}>
+      {loaders ? <CircularProgress  /> : ''}
       <div className={css.regDiv}>Регистрация</div>
       
       <form onSubmit={(e) => handleSubmit(e)} className={css.formDiv} action="">

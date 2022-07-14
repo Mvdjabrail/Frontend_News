@@ -1,14 +1,12 @@
 import React from 'react';
 import NewsContent from '../Components/Content/NewsContent/NewsContent';
-import Footer from '../Components/Footer/Footer';
-import Header from '../Components/Header/Header';
+import Footer from '../Components/Layot/Footer/Footer';
+import Header from '../Components/Layot/Header/Header';
 
 const NewsPage = () => {
     return (
         <>
-        <Header/>
         <NewsContent/>
-        <Footer/>
         </>
     );
 };

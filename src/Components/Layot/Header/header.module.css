@@ -50,20 +50,18 @@ header {
   z-index: 50;
   background-color: #f1f1f1;
 }
+
 .novost {
   display: flex;
+  justify-content: space-between;
   width: 30%;
-  align-items: center;
+  margin-top: 0.9%;
   position: absolute;
-  left: 37%;
-  top: 5%;
+  right: 30%;
 }
-
-.novosti {
-  display: flex;
-  align-items: center;
-  padding-right: 15%;
-  height: 20px;
+.novost a {
+  text-decoration: none;
+  color: black;
   cursor: pointer;
 }
 

@@ -3,15 +3,17 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logaut } from "../../app/features/userSlice";
-import css from "../Header/header.module.css";
-import img from "../image/Union.svg";
+import { logaut } from "../../../app/features/userSlice";
+import css from "./header.module.css";
+import img from "../../image/Union.svg";
+import { fetchCategory } from '../../../app/features/categoriesSlice';
 
 const Header = () => {
   const token = useSelector((state)=> state.user.token)
   const name = localStorage.getItem("name");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch()
+  const category = useSelector((state) => state.category.category);
 
   const rootEl = useRef(null);
 
@@ -24,7 +26,9 @@ const Header = () => {
     return () => document.removeEventListener("click", onClick);
   }, []);
 
-  console.log(isMenuOpen);
+  useEffect(() => {
+    dispatch(fetchCategory());
+  }, [dispatch]);
 
   const handleBurger = () => {
     setIsMenuOpen(true);
@@ -35,19 +39,18 @@ const Header = () => {
       dispatch(logaut())
     }
   }
+  console.log('sdcsd',category);
 
   return (
     <header onClick={(e) => e.stopPropagation()} ref={rootEl}>
       <div className={css.headerdiv}>
         <div className={css.logotip}>
-          {" "}
-          <Link to="/">Intocode News</Link>{" "}
+          <Link to="/">Intocode News</Link>
         </div>
         <div className={css.novost}>
-          <div className={css.novosti}>Наука</div>
-          <div className={css.novosti}>Спорт</div>
-          <div className={css.novosti}>Игры</div>
-          <div className={css.novosti}>Политика</div>
+          {category.map((item)=>{
+            return <Link to={`/category/${item._id}`}>{item.text} </Link>
+          })}
         </div>
         {!isMenuOpen ? (
           <>

@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,6 +11,7 @@ const NewsContent = () => {
   const news = useSelector((state) => state.news.news);
   const comments = useSelector((state) => state.comment.comment);
   const users = useSelector((state) => state.user.users);
+  const loading = useSelector((state) => state.news.loading);
   const { id } = useParams();
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
@@ -35,9 +37,13 @@ const NewsContent = () => {
     }
   };
 
-  console.log(users);
+  console.log(loading);
+  if (loading) {
+    return <CircularProgress className={css.loader}/>
+  }
 
   return (
+    
     <div>
       {news.map((item) => {
         if (item._id === id) {
@@ -57,20 +63,20 @@ const NewsContent = () => {
                     placeholder="Введите комментарий"
                   />
                 </form>
-                  {comments.map((item) => {
-                    return users.map((user) => {
-                      if (user._id === item.user) {
-                        return (
-                          <div className={css.loginComm}>
-                            <div className={css.loginDiv}>{user.login}</div>
-                            <div className={css.textDiv}>{item.text}</div>
-                          </div>
-                        );
-                      }
-                    });
-                  })}
-                </div>
+                {comments.map((item) => {
+                  return users.map((user) => {
+                    if (user._id === item.user) {
+                      return (
+                        <div className={css.loginComm}>
+                          <div className={css.loginDiv}>{user.login}</div>
+                          <div className={css.textDiv}>{item.text}</div>
+                        </div>
+                      );
+                    }
+                  });
+                })}
               </div>
+            </div>
           );
         }
       })}

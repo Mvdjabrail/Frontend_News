@@ -4,15 +4,38 @@ import css from "../HomeContent/homeContent.module.css";
 import { fetchNews } from "../../../app/features/newsSlise";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { getComments } from "../../../app/features/commentSlice";
 
 const HomeContent = () => {
   const dispatch = useDispatch();
+  const comment = useSelector((state) => state.comment.comments);
 
   useEffect(() => {
     dispatch(fetchNews());
+    dispatch(getComments());
   }, [dispatch]);
 
   const news = useSelector((state) => state.news.news);
+
+  const result = [];
+
+  const maxx = news.map((item) => {
+    const result = comment.filter((com) => com.news === item._id);
+
+    return result;
+  });
+
+  const maxx2 = () => {
+    let max = maxx[0];
+    for (let i = 0; i < maxx.length; i++) {
+      if (maxx[i].length > max.length) {
+        console.log("RESSSSS", maxx[i]);
+        max = result[i];
+      }
+    }
+    return max;
+  };
+  console.log("MAAAX", maxx2());
 
 
   return (
@@ -53,8 +76,12 @@ const HomeContent = () => {
                     />
                   </Link>
                 </div>
-                <Link to={`/News/${item._id}`}>
-                  <FaRegComment />
+                <Link className={css.lengCom} to={`/News/${item._id}`}>
+                  <FaRegComment className={css.faCom} />
+                  <div className={css.lendiv}>
+                    
+                    { comment.filter((com) => com.news === item._id).length}
+                  </div>
                 </Link>
               </div>
             </div>

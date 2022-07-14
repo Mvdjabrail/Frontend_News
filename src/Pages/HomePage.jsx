@@ -1,14 +1,12 @@
-import Footer from "../Components/Footer/Footer";
-import Header from "../Components/Header/Header";
+import Footer from "../Components/Layot/Footer/Footer";
+import Header from "../Components/Layot/Header/Header";
 import HomeContent from './../Components/Content/HomeContent/HomeContent';
 
 const HomePage = () => {
 
   return (
     <>
-      <Header />
       <HomeContent />
-      <Footer />
     </>
   );
 };

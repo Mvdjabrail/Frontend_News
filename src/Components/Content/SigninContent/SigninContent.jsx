@@ -7,7 +7,6 @@ import { doLogin } from "../../../app/features/userSlice";
 const SigninContent = () => {
   const signinIn = useSelector((state) => state.user.signinIn);
   const error = useSelector((state) => state.user.error);
-  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   const [login, setLogin] = useState("");

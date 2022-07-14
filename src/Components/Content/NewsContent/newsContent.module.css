@@ -53,3 +53,8 @@
 form input {
   margin-bottom: 1%;
 }
+
+.loader {
+  position: relative;
+  left: 50%;
+}

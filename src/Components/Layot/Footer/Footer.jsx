@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import css from "../Footer/footer.module.css";
-import img1 from "../image/icon1.svg";
-import img2 from "../image/icon2.svg";
+import css from "./footer.module.css";
+import img1 from "../../image/icon1.svg";
+import img2 from "../../image/icon2.svg";
 
 const Footer = () => {
   return (

@@ -79,12 +79,18 @@
 .latesPhoto {
   width: 25%;
 }
-.divImg img{
+.divImg img {
   cursor: pointer;
 }
 
 .divLates1 {
   margin-bottom: 5%;
+}
+
+.divLates1:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+  filter: drop-shadow(-12px 10px 15px rgba(0, 0, 0, 0.29));
 }
 
 .divLates1 div {
@@ -96,3 +102,14 @@
   line-height: 25px;
 }
 
+.lendiv{
+  width: 1%;
+  padding-bottom: 1.5%;
+  padding-left: 2%;
+}
+
+.lengCom {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
