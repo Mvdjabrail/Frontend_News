@@ -1,0 +1,80 @@
+.mainNovost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.divNovost {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+input {
+  margin: 1%;
+}
+
+.createImage {
+  height: 400px;
+  width: 260px;
+  display: flex;
+  background-color: #eee;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
+
+.divImg {
+  display: flex;
+  justify-content: center;
+}
+
+.img2 {
+    margin-top: 5%;
+  width: 260px;
+  height: 200px;
+}
+
+.img1 {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    margin-top: 5%;
+    font-size: 1.1em;
+    background-color: gray;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.addDiv {
+    padding-left: 5%;
+    display: flex;
+    align-items: center;
+
+}
+
+.add {
+    font-size: 1.2em;
+    margin-left: 5%;
+}
+
+.polzovatel {
+  text-align: center;
+}
+.polzovatel a {
+  text-decoration: none;
+  color: black;
+}

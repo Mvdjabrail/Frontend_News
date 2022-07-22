@@ -19,9 +19,13 @@
 }
 
 .photoBacr {
-  background-image: url("../../image/photo1.svg");
-  width: 1385px;
-  height: 400px;
+  width: 45%;
+}
+
+.photoBacr:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+  filter: drop-shadow(-12px 10px 15px rgba(0, 0, 0, 0.29));
 }
 
 .nisi img {
@@ -81,6 +85,9 @@
 }
 .divImg img {
   cursor: pointer;
+  width: 270px;
+  height: 180px;
+  border-radius: 10px;
 }
 
 .divLates1 {
@@ -102,7 +109,7 @@
   line-height: 25px;
 }
 
-.lendiv{
+.lendiv {
   width: 1%;
   padding-bottom: 1.5%;
   padding-left: 2%;
@@ -112,4 +119,14 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.img5 {
+  border-radius: 10px;
+  width: 600px;
+  height: 350px;
+}
+.loader {
+  position: relative;
+  left: 50%;
 }

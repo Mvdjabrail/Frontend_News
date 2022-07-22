@@ -58,11 +58,17 @@ header {
   margin-top: 0.9%;
   position: absolute;
   right: 30%;
+  font-size: 1.3em;
 }
 .novost a {
   text-decoration: none;
   color: black;
   cursor: pointer;
+}
+
+.novost a:hover {
+  color: black;
+  
 }
 
 .burger {
@@ -72,18 +78,19 @@ header {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #111;
+  background-color: gray;
   overflow-x: hidden;
   padding-top: 60px;
   transition-duration: 0.25s;
   visibility: visible;
+
 }
 
 .burger a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: black;
   display: block;
   transition: 0.3s;
 }
@@ -93,8 +100,20 @@ header {
 }
 
 .nameDiv {
+  display: flex;
   padding-right: 10%;
   font-size: 1.5em;
   color: black;
   padding-left: 5%;
 }
+
+.nameDiv a {
+text-decoration: none;
+color: black;
+}
+
+.polzovatel {
+  font-size: 20px;
+  width: 70%;
+}
+

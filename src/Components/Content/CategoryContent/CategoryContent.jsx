@@ -16,15 +16,13 @@ const CategoryContent = () => {
 
   return (
     <div className={css.mainNews}>
-      {news.map((item) => {
+      {news.map((item, index) => {
         if (id === item.category) {
-          console.log(id === item.category);
           return (
-
-            <div className={css.divNews}>
+            <div key={index} className={css.divNews}>
               <div className={css.divTitle}>{item.title}</div>
               <Link to={`/News/${item._id}`}>
-                <img src={`http://localhost:4000/${item.pictures}`} alt="" />
+                <img className={css.img1} src={`http://localhost:4000/${item.image}`} alt="" />
               </Link>
             </div>
           );

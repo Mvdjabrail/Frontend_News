@@ -75,7 +75,7 @@ const SigninUpContent = () => {
           Зарегистрироваться
         </button>
         <button className={css.btnAvtoregistr}>
-          {error && <div>{error}</div>}
+        {error ? <div className={css.errorDiv}>{error}</div> : ''}
           <Link to="/SigninIn"> Еcть аккаунт? Войти</Link>
         </button>
       </form>

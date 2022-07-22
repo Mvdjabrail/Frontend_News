@@ -13,7 +13,6 @@ const initialState = {
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       } else {
-        console.log(data);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (error) {

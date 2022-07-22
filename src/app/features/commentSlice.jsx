@@ -37,7 +37,6 @@ export const getComment = createAsyncThunk(
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       } else {
-        console.log(data);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (error) {
@@ -45,6 +44,24 @@ export const getComment = createAsyncThunk(
     }
   }
 );
+
+export const deleteComment = createAsyncThunk(
+  "comment/delete",
+  async (el, thunkAPI) => {
+      const state = thunkAPI.getState()
+
+      try {
+          await fetch(`http://localhost:4000/comment/${el._id}`, {
+              method: "DELETE",
+              headers: { Authorization: `Bearer ${state.user.token}` }
+          })
+          return el._id
+
+      } catch (error) {
+          thunkAPI.rejectWithValue(error)
+      }
+  }
+)
 
 export const getComments = createAsyncThunk(
   "comments/get",
@@ -56,7 +73,6 @@ export const getComments = createAsyncThunk(
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       } else {
-        console.log(data);
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (error) {
@@ -83,7 +99,10 @@ export const commentSlice = createSlice({
       .addCase(getComments.fulfilled, (state, action) => {
         state.comments = action.payload;
         state.error = null;
-      });
+      })
+      .addCase(deleteComment.fulfilled, (state, action)=>{
+        state.comment = state.comment.filter((item)=> item._id !== action.payload)
+      })
   },
 });
 

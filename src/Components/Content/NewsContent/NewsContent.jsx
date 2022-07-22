@@ -1,8 +1,12 @@
 import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { commentNews, getComment } from "../../../app/features/commentSlice";
+import { Link, useParams } from "react-router-dom";
+import {
+  commentNews,
+  deleteComment,
+  getComment,
+} from "../../../app/features/commentSlice";
 import { fetchNews } from "../../../app/features/newsSlise";
 import { getUser } from "../../../app/features/userSlice";
 import css from "./newsContent.module.css";
@@ -15,6 +19,8 @@ const NewsContent = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
+  const userId = localStorage.getItem("user");
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -23,6 +29,7 @@ const NewsContent = () => {
   useEffect(() => {
     dispatch(getComment(id));
     dispatch(getUser());
+    dispatch(deleteComment());
   }, [dispatch, id]);
 
   const changeComment = (e) => {
@@ -37,39 +44,65 @@ const NewsContent = () => {
     }
   };
 
-  console.log(loading);
+  const handleRemove = (id) => {
+    dispatch(deleteComment(id));
+  };
+
   if (loading) {
-    return <CircularProgress className={css.loader}/>
+    return <CircularProgress className={css.loader} />;
   }
 
   return (
-    
     <div>
-      {news.map((item) => {
+      {news.map((item, index) => {
         if (item._id === id) {
           return (
-            <div className={css.mainDiv}>
+            <div key={index} className={css.mainDiv}>
               <div>
-                <img src={`http://localhost:4000/${item.pictures}`} alt="" />
+                <img
+                  className={css.img1}
+                  src={`http://localhost:4000/${item.image}`}
+                  alt=""
+                />
               </div>
               <div className={css.titleDiv}>{item.title}</div>
               <div className={css.divText}>{item.text}</div>
               <div className={css.commentDiv}>
-                <form onSubmit={(e) => handleSubmit(e)} action="">
-                  <input
-                    onChange={changeComment}
-                    value={comment}
-                    type="text"
-                    placeholder="Введите комментарий"
-                  />
-                </form>
-                {comments.map((item) => {
+                {token ? (
+                  <form onSubmit={(e) => handleSubmit(e)} action="">
+                    <input
+                      onChange={changeComment}
+                      value={comment}
+                      type="text"
+                      placeholder="Введите комментарий"
+                    />
+                  </form>
+                ) : (
+                  <div className={css.divReg}>
+                    <Link className={css.regAuto} to="/SigninIn">
+                      Авторизируйтесь
+                    </Link>
+                  </div>
+                )}
+                {comments.map((items) => {
                   return users.map((user) => {
-                    if (user._id === item.user) {
+                    if (user._id === items.user) {
                       return (
                         <div className={css.loginComm}>
-                          <div className={css.loginDiv}>{user.login}</div>
-                          <div className={css.textDiv}>{item.text}</div>
+                          <div>
+                            <div className={css.loginDiv}>{user.login}</div>
+                            <div className={css.textDiv}>{items.text}</div>
+                          </div>
+                          {items.user === userId ? (
+                            <button
+                              onClick={() => handleRemove(items)}
+                              className={css.btnRemove}
+                            >
+                              Удалить
+                            </button>
+                          ) : (
+                            ""
+                          )}
                         </div>
                       );
                     }
